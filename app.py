@@ -70,8 +70,6 @@ def verificar_token(req):
     else:
         return jsonify({'error': 'Token Invalido'}), 401
 
-    return 0
-
 #Como esta funcion recibe los mensaje, se agregara la BD
 def recibir_mensajes(req):
     req = request.get_json()
