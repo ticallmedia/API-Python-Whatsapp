@@ -49,7 +49,7 @@ def agregar_mensajes_log(texto):
 #agregar_mensajes_log(json.dumps("Test1"))
 
 #Tockin de verificacion para la configuracion 
-TOKEN_ADERCODE = "ANDERCODE"
+TOKEN_ADERCODE = "TRONOSCODE"
 
 @app.route("/webhook", methods=["GET","POST"])
 def webhook():
