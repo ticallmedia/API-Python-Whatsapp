@@ -61,8 +61,8 @@ def webhook():
         return reponse
 
 def verificar_token(req):
-    token = req.args.get('hub.verify_token')
-    challenge = req.args.get('hub.challenge')
+    token = req.args.get('hun.verify_token')
+    challenge = req.args.get('hun.challenge')
 
     if challenge and token == TOKEN_CODE:
         return challenge
