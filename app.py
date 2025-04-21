@@ -67,13 +67,13 @@ def verificar_token(req):
     if challenge and token == TOKEN_CODE:
         return challenge
     else:
-        return jsonify({'error': 'Token Invalido'}), 401
+        return jsonify({'error':'Token Invalido'}), 401
 
 #Como esta funcion recibe los mensaje, se agregara la BD
 def recibir_mensajes(req):
     req = request.get_json()
     agregar_mensajes_log(req)
-    return jsonify({'message': 'EVENT_RECEIVED'})
+    return jsonify({'message':'EVENT_RECEIVED'})
 
 
 if __name__=='__main__':
