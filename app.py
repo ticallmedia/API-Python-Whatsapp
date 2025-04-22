@@ -71,9 +71,26 @@ def verificar_token(req):
 
 #Como esta funcion recibe los mensaje, se agregara la BD
 def recibir_mensajes(req):
-    req = request.get_json()
-    agregar_mensajes_log(req)
-    return jsonify({'message':'EVENT_RECEIVED'})
+    
+    #esto se oculta para poder ver el mensaje dentro del log
+    #req = request.get_json()
+    #agregar_mensajes_log(req)
+
+#leyendo un mensaje
+    try:
+        req = request.get_json()
+        entry =  req['entry'][0]
+        changes = entry['changes'][0]
+        value = changes['value']
+        objeto_mensaje = value['messages']
+
+        agregar_mensajes_log(json.dumps(objeto_mensaje))
+
+
+        return jsonify({'message':'EVENT_RECEIVED'})
+    
+    except Exception as e:
+        return jsonify({'message':'EVENT_RECEIVED'})
 
 
 if __name__=='__main__':
