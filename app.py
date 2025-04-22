@@ -99,8 +99,10 @@ def recibir_mensajes(req):
                     numero = messages["from"]
                     
                     #para guardar en la base de datos
-                    agregar_mensajes_log(json.dumps(text))
-                    agregar_mensajes_log(json.dumps(numero))
+                    #agregar_mensajes_log(json.dumps(text))
+                    #agregar_mensajes_log(json.dumps(numero))
+
+                    enviar_mensaje_whatsapp(text,numero)
 
 
         return jsonify({'message':'EVENT_RECEIVED'})
