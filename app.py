@@ -109,5 +109,55 @@ def recibir_mensajes(req):
         return jsonify({'message':'EVENT_RECEIVED'})
 
 
+#Para responder el mensaje
+def enviar_mensaje_whatsapp(texto,number):
+    texto = texto.lower()
+
+    if "hola" in texto:
+        data ={
+                "messaging_product": "whatsapp",    
+                "recipient_type": "individual",
+                "to": number,
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": "Hola ¿Como estas? Bienvenido al TAM Bot Test, prueba de bot con RENDER"
+                }
+            }
+    else:
+        data ={
+                "messaging_product": "whatsapp",    
+                "recipient_type": "individual",
+                "to": number,
+                "type": "text",
+                "text": {
+                    "preview_url": False,
+                    "body": "Este es otro texto de,  TAM Bot Test, prueba de bot con RENDER"
+                }
+            }
+    #convertir el diccionario a formato json
+    data = json.dumps(data)
+
+    #datos de WETA
+    headers = {
+        "Content-Type" : "application/json",
+        "Authorization" : "Bearer EAARFt0chSDgBOZC4ZBkaF0dlVi63BScd5mxSKOwh0eKKjZBORX91sWhHx5Xp8HwBiSmBKRuJjbjDSZA3wzsgKY5BkwgAi3bgnQljV3Df1T8ZBrpHe8gxakMvsMXDSTWuUhfBHhZB2Fz2uBFN5LIEV2cklyzX7NoyO0QJHiL4s7L547ZBiumebooRKkBVioZA2AeKZCNMNaHvEujGiMMSuS8YN3O4sipr7DqGa4WYZD"
+
+    }
+
+    connection = http.client.HTTPSConnection("graph.facebook.com")
+
+    try:
+
+        connection.request("POST","/v22.0/593835203818298/messages", data, headers)
+        response = connection.getresponse()
+        print(response.status, response.reason)
+
+    except Exception as e:
+        agregar_mensajes_log(json.dumps(e))
+
+    finally:
+        connection.close()
+
 if __name__=='__main__':
     app.run(host='0.0.0.0',port=80,debug=True)
