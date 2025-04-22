@@ -116,35 +116,34 @@ def enviar_mensaje_whatsapp(texto,number):
     texto = texto.lower()
 
     if "hola" in texto:
-        data ={
-                "messaging_product": "whatsapp",    
-                "recipient_type": "individual",
-                "to": number,
-                "type": "text",
-                "text": {
-                    "preview_url": False,
-                    "body": "Hola ¿Como estas? Bienvenido al TAM Bot Test, prueba de bot con RENDER"
-                }
+        data={
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "text",
+            "text": {
+                "preview_url": False,
+                "body": "🚀 Hola, ¿Cómo estás? Bienvenido."
             }
+        }
     else:
-        data ={
-                "messaging_product": "whatsapp",    
-                "recipient_type": "individual",
-                "to": number,
-                "type": "text",
-                "text": {
-                    "preview_url": False,
-                    "body": "Este es otro texto de,  TAM Bot Test, prueba de bot con RENDER"
-                }
+        data = {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "text",
+            "text": {
+                "preview_url": False,
+                "body": "🚀 Hola, visita mi web anderson-bastidas.com para más información.\n \n📌Por favor, ingresa un número #️⃣ para recibir información.\n \n1️⃣. Información del Curso. ❔\n2️⃣. Ubicación del local. 📍\n3️⃣. Enviar temario en PDF. 📄\n4️⃣. Audio explicando curso. 🎧\n5️⃣. Video de Introducción. ⏯️\n6️⃣. Hablar con AnderCode. 🙋‍♂️\n7️⃣. Horario de Atención. 🕜 \n0️⃣. Regresar al Menú. 🕜"
             }
+        }
     #convertir el diccionario a formato json
     data = json.dumps(data)
 
     #datos de WETA
     headers = {
         "Content-Type" : "application/json",
-        "Authorization" : "Bearer EAARFt0chSDgBOZC4ZBkaF0dlVi63BScd5mxSKOwh0eKKjZBORX91sWhHx5Xp8HwBiSmBKRuJjbjDSZA3wzsgKY5BkwgAi3bgnQljV3Df1T8ZBrpHe8gxakMvsMXDSTWuUhfBHhZB2Fz2uBFN5LIEV2cklyzX7NoyO0QJHiL4s7L547ZBiumebooRKkBVioZA2AeKZCNMNaHvEujGiMMSuS8YN3O4sipr7DqGa4WYZD"
-
+        "Authorization" : "Bearer EAARFt0chSDgBO9nTZAnDcSVNeY7EQ8rOUWRZAR13fsfP4B2LKZBZAJ9jzpvIUmuSHcWaiWAYT5nMXBnnpxMpMXryLZArHfLwEfWGleX6cTHgDSEF0IDA9vTFCuVIaiZBRjmmiWeQSBnvHJt16zWGS7rCJDZATvkXCIf1T2OUyNrx0hwnHtb4TssMsHksQFpjsetV3hKVP7swFDLqonuUCsaCtPtG6nZCC8CruowO"
     }
 
     connection = http.client.HTTPSConnection("graph.facebook.com")
