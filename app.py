@@ -210,10 +210,10 @@ def enviar_mensaje_whatsapp(texto,number):
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
             "to": number,
-            "type": "audio",
-            "audio": {
-                "link": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-                "caption": "Audio de prueba"
+            "type": "text",
+            "text": {
+                "preview_url": False,
+                "body": "🚀 Hola, visita mi web https://ticallmedia.com/.com para más información.\n \n📌Por favor, ingresa un número #️⃣ para recibir información.\n \n1️⃣. Información de los Servicios. 💼\n2️⃣. Ubicación del local. 📍\n3️⃣. Enviar catalogo en PDF. 📄\n4️⃣. Audio explicando a mayor detalle. 🎧\n5️⃣. Video de Introducción. ⏯️\n6️⃣. Hablar con un Agente. 🙋‍♂️\n7️⃣. Horario de Atención. 🕜 \n0️⃣. Regresar al Menú. 🕜"
             }
         }
     else:
