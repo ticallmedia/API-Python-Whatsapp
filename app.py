@@ -93,7 +93,8 @@ def recibir_mensajes(req):
                 tipo = messages["type"]
 
                 #guarda log en la base de datos
-                agregar_mensajes_log(json.dumps(tipo))
+                #agregar_mensajes_log(json.dumps(tipo))
+                agregar_mensajes_log(json.dumps(messages))#contiene todo el json
 
                 if tipo == "interactive":
                     return 0
@@ -226,38 +227,10 @@ def enviar_mensaje_whatsapp(texto,number):
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
             "to": number,
-            "type": "interactive",
-            "interactive": {
-                "type": "button",
-                "body": {
-                    "text" : "¿Confirma su registro..?"
-                },
-                "footer": {
-                    "text" : "Selecciona una de las opciones:"
-                },
-                "action": {
-                    "buttons": [
-                        {
-                            "type" : "reply",
-                            "reply" : {
-                                "id" : "btnsi",
-                                "title": "Si"
-                            } 
-                        },{
-                            "type" : "reply",
-                            "reply" : {
-                                "id" : "btnno",
-                                "title": "No"
-                            } 
-                        },{
-                            "type" : "reply",
-                            "reply" : {
-                                "id" : "btntalvez",
-                                "title": "Tal Vez"
-                            } 
-                        }
-                    ]
-                }                
+            "type": "text",
+            "text": {
+                "preview_url": False,
+                "body": "Prueba boton"
             }
         }
     else:
