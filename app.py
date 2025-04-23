@@ -173,6 +173,49 @@ def enviar_mensaje_whatsapp(texto,number):
                 "caption": "Audio de prueba"
             }
         }
+    elif "5" in texto:
+        data= {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "text": {
+                "preview_url": True,
+                "body": "Introducción Servicios TicAll Media https://youtu.be/hpltvTEiRrY to inspire your day!"
+            }
+        }
+    elif "6" in texto:
+        data= {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "text",
+            "text": {
+                "preview_url": False,
+                "body": "🤙 En breve te contactaremos!!!"
+            }
+        }
+    elif "7" in texto:
+        data= {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "text",
+            "text": {
+                "preview_url": False,
+                "body": "🗓️ Horario de Atención: Lunes a Viernes. \n 🕐 Horario: 9:00 am a 5:00 pm"
+            }
+        }
+    elif "0" in texto:
+        data= {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "audio",
+            "audio": {
+                "link": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+                "caption": "Audio de prueba"
+            }
+        }
     else:
         data = {
             "messaging_product": "whatsapp",
