@@ -117,7 +117,7 @@ def enviar_mensaje_whatsapp(texto,number):
     texto = texto.lower()
 
     if "hola" in texto:
-        data={
+        data= {
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
             "to": number,
@@ -125,6 +125,41 @@ def enviar_mensaje_whatsapp(texto,number):
             "text": {
                 "preview_url": False,
                 "body": "🚀 Hola, ¿Cómo estás? Bienvenido."
+            }
+        }
+    elif "1" in texto:
+        data= {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "text",
+            "text": {
+                "preview_url": False,
+                "body": "💼 Nuestros servicios son los siguientte \n 1. Servicio \n 2. otros servicios"
+            }
+        }
+    elif "2" in texto:
+        data= {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "location",
+            "location": {
+                "latitude": "4.342897934970716",
+                "longitude": "-74.36055740298639",
+                "name": "Empresa de Servicios Públicos de Fusagasugá",
+                "address": "Av las Palmas Nro 4-66 Centro"
+            }
+        }
+    elif "3" in texto:
+        data= {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "document",
+            "document": {
+                "link": "https://www.dinamarca.edu.co/pdf/Algebra%20de%20Baldor.pdf",
+                "caption": "Algebra de Baldor"
             }
         }
     else:
@@ -135,7 +170,7 @@ def enviar_mensaje_whatsapp(texto,number):
             "type": "text",
             "text": {
                 "preview_url": False,
-                "body": "🚀 Hola, visita mi web https://ticallmedia.com/.com para más información.\n \n📌Por favor, ingresa un número #️⃣ para recibir información.\n \n1️⃣. Información de los Servicios. ❔\n2️⃣. Ubicación del local. 📍\n3️⃣. Enviar catalogo en PDF. 📄\n4️⃣. Audio explicando a mayor detalle. 🎧\n5️⃣. Video de Introducción. ⏯️\n6️⃣. Hablar con un Agente. 🙋‍♂️\n7️⃣. Horario de Atención. 🕜 \n0️⃣. Regresar al Menú. 🕜"
+                "body": "🚀 Hola, visita mi web https://ticallmedia.com/.com para más información.\n \n📌Por favor, ingresa un número #️⃣ para recibir información.\n \n1️⃣. Información de los Servicios. 💼\n2️⃣. Ubicación del local. 📍\n3️⃣. Enviar catalogo en PDF. 📄\n4️⃣. Audio explicando a mayor detalle. 🎧\n5️⃣. Video de Introducción. ⏯️\n6️⃣. Hablar con un Agente. 🙋‍♂️\n7️⃣. Horario de Atención. 🕜 \n0️⃣. Regresar al Menú. 🕜"
             }
         }
     #convertir el diccionario a formato json
