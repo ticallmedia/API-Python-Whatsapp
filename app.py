@@ -227,10 +227,38 @@ def enviar_mensaje_whatsapp(texto,number):
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
             "to": number,
-            "type": "text",
-            "text": {
-                "preview_url": False,
-                "body": "Prueba boton"
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text" : "¿Confirma su registro..?"
+                },
+                "footer": {
+                    "text" : "Selecciona una de las opciones:"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type" : "reply",
+                            "reply" : {
+                                "id" : "btnsi",
+                                "title": "Si"
+                            } 
+                        },{
+                            "type" : "reply",
+                            "reply" : {
+                                "id" : "btnno",
+                                "title": "No"
+                            } 
+                        },{
+                            "type" : "reply",
+                            "reply" : {
+                                "id" : "btntalvez",
+                                "title": "Tal Vez"
+                            } 
+                        }
+                    ]
+                }                
             }
         }
     else:
