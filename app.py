@@ -93,7 +93,6 @@ def recibir_mensajes(req):
                 tipo = messages["type"]
 
                 #guarda log en la base de datos
-                #agregar_mensajes_log(json.dumps(tipo))
                 agregar_mensajes_log(json.dumps(tipo))#contiene todo el json
 
                 if tipo == "interactive":
@@ -108,9 +107,9 @@ def recibir_mensajes(req):
 
                     #guarda log en la base de datos
 
-                    #agregar_mensajes_log(json.dumps(text))
+                    agregar_mensajes_log(json.dumps(text))
                     #agregar_mensajes_log(json.dumps(numero))
-                    agregar_mensajes_log(json.dumps(messages))
+                    #agregar_mensajes_log(json.dumps(messages))
 
 
         return jsonify({'message':'EVENT_RECEIVED'})
@@ -251,7 +250,7 @@ def enviar_mensaje_whatsapp(texto,number):
     #datos de WETA
     headers = {
         "Content-Type" : "application/json",
-        "Authorization" : "Bearer EAARFt0chSDgBO9Fg7diFEBd2IoHJrextxqenFQJrZACeTy9zg8iSkRYC6fqyZClPVoj4BEeiTpuHy386Vu1IDh4Qym7QezfdlWDwhfZBXgkzdU8gk59slAVnvLWSD6mHJpNSo7isFZB2UgfJbZAmRcQUkCxUfWQg65Y35ZC9NaM5jeZAXtHNxLPpGveiqN3UcEYKaiu7cqtp5MwADF2lgUI6oPukC6PWZBwNOacZD"
+        "Authorization" : "Bearer EAARFt0chSDgBOx6u7Rgn2Daqg7AtSiKYiUSoAY8IX2GZCIuT2fvkNhOyYOA7oHCrKZAcD7FeKPNov537ZBC5RQU3CpL9RymKaZBa1EJ0eZBNCD3XmAVkrLZCwdyG0P6vZAfpZAcvWax0g7nbnEZCrBMmd3fTV6B9dalrOIZAzuDkY9oVrZBPr1WAye9FY9LyIAW4k0MSeArnKn3CHl7YVOhZBjX2leZA7F5Pt1LrlVRUZD"
     }
 
     connection = http.client.HTTPSConnection("graph.facebook.com")
