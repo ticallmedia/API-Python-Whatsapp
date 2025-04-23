@@ -103,7 +103,8 @@ def recibir_mensajes(req):
                     text = messages["text"]["body"]
                     numero = messages["from"]
 
-                    enviar_mensaje_whatsapp(json.dumps(text,numero))
+                    #enviar_mensaje_whatsapp(json.dumps(text,numero))
+                    enviar_mensaje_whatsapp(text,numero)
 
                     #guarda log en la base de datos
 
