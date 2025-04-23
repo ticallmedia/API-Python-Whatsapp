@@ -92,18 +92,23 @@ def recibir_mensajes(req):
             if "type" in messages:
                 tipo = messages["type"]
 
+                #guarda log en la base de datos
+                agregar_mensajes_log(json.dumps(tipo))
+
                 if tipo == "interactive":
                     return 0
                 
                 if "text" in messages:
                     text = messages["text"]["body"]
                     numero = messages["from"]
-                    
-                    #para guardar en la base de datos
-                    agregar_mensajes_log(json.dumps(text))
-                    #agregar_mensajes_log(json.dumps(numero))
 
-                    enviar_mensaje_whatsapp(text,numero)
+                    enviar_mensaje_whatsapp(json.dumps(text,numero))
+
+                    #guarda log en la base de datos
+
+                    #agregar_mensajes_log(json.dumps(text))
+                    #agregar_mensajes_log(json.dumps(numero))
+                    agregar_mensajes_log(json.dumps(messages))
 
 
         return jsonify({'message':'EVENT_RECEIVED'})
@@ -214,6 +219,45 @@ def enviar_mensaje_whatsapp(texto,number):
             "text": {
                 "preview_url": False,
                 "body": "🚀 Hola, visita mi web https://ticallmedia.com/.com para más información.\n \n📌Por favor, ingresa un número #️⃣ para recibir información.\n \n1️⃣. Información de los Servicios. 💼\n2️⃣. Ubicación del local. 📍\n3️⃣. Enviar catalogo en PDF. 📄\n4️⃣. Audio explicando a mayor detalle. 🎧\n5️⃣. Video de Introducción. ⏯️\n6️⃣. Hablar con un Agente. 🙋‍♂️\n7️⃣. Horario de Atención. 🕜 \n0️⃣. Regresar al Menú. 🕜"
+            }
+        }
+    elif "boton" in texto:
+        data= {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text" : "¿Confirma su registro..?"
+                },
+                "footer": {
+                    "text" : "Selecciona una de las opciones:"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type" : "reply",
+                            "reply" : {
+                                "id" : "btnsi",
+                                "title": "Si"
+                            } 
+                        },{
+                            "type" : "reply",
+                            "reply" : {
+                                "id" : "btnno",
+                                "title": "No"
+                            } 
+                        },{
+                            "type" : "reply",
+                            "reply" : {
+                                "id" : "btntalvez",
+                                "title": "Tal Vez"
+                            } 
+                        }
+                    ]
+                }                
             }
         }
     else:
