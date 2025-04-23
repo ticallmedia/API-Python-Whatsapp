@@ -179,7 +179,7 @@ def enviar_mensaje_whatsapp(texto,number):
     #datos de WETA
     headers = {
         "Content-Type" : "application/json",
-        "Authorization" : "Bearer EAARFt0chSDgBO9nTZAnDcSVNeY7EQ8rOUWRZAR13fsfP4B2LKZBZAJ9jzpvIUmuSHcWaiWAYT5nMXBnnpxMpMXryLZArHfLwEfWGleX6cTHgDSEF0IDA9vTFCuVIaiZBRjmmiWeQSBnvHJt16zWGS7rCJDZATvkXCIf1T2OUyNrx0hwnHtb4TssMsHksQFpjsetV3hKVP7swFDLqonuUCsaCtPtG6nZCC8CruowO"
+        "Authorization" : "Bearer EAARFt0chSDgBO9Fg7diFEBd2IoHJrextxqenFQJrZACeTy9zg8iSkRYC6fqyZClPVoj4BEeiTpuHy386Vu1IDh4Qym7QezfdlWDwhfZBXgkzdU8gk59slAVnvLWSD6mHJpNSo7isFZB2UgfJbZAmRcQUkCxUfWQg65Y35ZC9NaM5jeZAXtHNxLPpGveiqN3UcEYKaiu7cqtp5MwADF2lgUI6oPukC6PWZBwNOacZD"
     }
 
     connection = http.client.HTTPSConnection("graph.facebook.com")
