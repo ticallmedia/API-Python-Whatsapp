@@ -162,6 +162,17 @@ def enviar_mensaje_whatsapp(texto,number):
                 "caption": "Algebra de Baldor"
             }
         }
+    elif "4" in texto:
+        data= {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "audio",
+            "audio": {
+                "link": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+                "caption": "Audio de prueba"
+            }
+        }
     else:
         data = {
             "messaging_product": "whatsapp",
