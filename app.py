@@ -94,7 +94,7 @@ def recibir_mensajes(req):
 
                 #guarda log en la base de datos
                 #agregar_mensajes_log(json.dumps(tipo))
-                agregar_mensajes_log(json.dumps(messages))#contiene todo el json
+                agregar_mensajes_log(json.dumps(tipo))#contiene todo el json
 
                 if tipo == "interactive":
                     return 0
