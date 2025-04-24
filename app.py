@@ -93,7 +93,7 @@ def recibir_mensajes(req):
                 tipo = messages["type"]
 
                 #guarda log en la base de datos
-                #agregar_mensajes_log(json.dumps(tipo))#contiene todo el json
+                agregar_mensajes_log(json.dumps(tipo))#contiene todo el json
 
                 if tipo == "interactive":
                     tipo_interactivo = messages["interactive"]["type"]
@@ -317,7 +317,7 @@ def enviar_mensaje_whatsapp(texto,number):
     #datos de WETA
     headers = {
         "Content-Type" : "application/json",
-        "Authorization" : "Bearer EAARFt0chSDgBOx6u7Rgn2Daqg7AtSiKYiUSoAY8IX2GZCIuT2fvkNhOyYOA7oHCrKZAcD7FeKPNov537ZBC5RQU3CpL9RymKaZBa1EJ0eZBNCD3XmAVkrLZCwdyG0P6vZAfpZAcvWax0g7nbnEZCrBMmd3fTV6B9dalrOIZAzuDkY9oVrZBPr1WAye9FY9LyIAW4k0MSeArnKn3CHl7YVOhZBjX2leZA7F5Pt1LrlVRUZD"
+        "Authorization" : "Bearer EAARFt0chSDgBO5af5J6pd5Mr1IYDTxVl0pOvQkU1W7pQjgnZCLU3ZCmp3VbOqZBugxKUkfnFkDyRXdQZCkZAlihZCBZAozZCBJDMVNYmO7fp56Ocmtb9jac4kdxV3LIpsOZBaGsTciwmryOI7vnw8Srjwae7qoH6LOR4N85LXXugUtV3Jc7OYA37DyQ6nx8V2bTYJzykNkCIrxqYZCknclnKEqaTM8ZBQItsow3cigZD"
     }
 
     connection = http.client.HTTPSConnection("graph.facebook.com")
