@@ -317,10 +317,10 @@ def enviar_mensaje_whatsapp(texto,number):
                     "text" : "Selecciona una de las opciones para poder ayudarte:"
                 },"action": {
                     "button" : "Ver opciones",
-                    "secctions": [
+                    "sections": [
                         {
                             "title": "Compra y venta",
-                            "row": [
+                            "rows": [
                                 {
                                     "id": "btncompra",
                                     "title": "Comprar",
