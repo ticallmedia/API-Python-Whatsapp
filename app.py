@@ -313,9 +313,13 @@ def enviar_mensaje_whatsapp(texto,number):
                 "type": "list",
                 "body": {
                     "text" : "Selecciona alguna opción"
-                },"footer": {
+
+                },
+                "footer": {
                     "text" : "Selecciona una de las opciones para poder ayudarte:"
-                },"action": {
+
+                },
+                "action": {
                     "button" : "Ver opciones",
                     "sections": [
                         {
@@ -350,6 +354,7 @@ def enviar_mensaje_whatsapp(texto,number):
 
                         }
                     ]
+                }
             }
         }
     else:
