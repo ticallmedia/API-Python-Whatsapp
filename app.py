@@ -361,7 +361,7 @@ def enviar_mensaje_whatsapp(texto,number):
                 }
             }
         }
-    elif "btncomprar" in texto:
+    elif "btncompra" in texto:
         data= {
             "messaging_product": "whatsapp",
             "recipient_type": "individual",
@@ -402,7 +402,7 @@ def enviar_mensaje_whatsapp(texto,number):
             "type": "text",
             "text": {
                 "preview_url": False,
-                "body": "para mas información de entrga, visita el siguiente enlace.."
+                "body": "para mas información de entrega, visita el siguiente enlace.."
             }
         }
     else:
