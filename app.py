@@ -105,8 +105,12 @@ def recibir_mensajes(req):
 
                         enviar_mensaje_whatsapp(text,numero)
                     
-                    #elif tipo_interactivo == "list_reply":
-                     #   text = me
+                    elif tipo_interactivo == "list_reply":
+                        text = messages["interactive"]["list_reply"]["id"]
+
+                        numero = messages["from"]
+
+                        enviar_mensaje_whatsapp(text,numero)
                 
                 if "text" in messages:
                     text = messages["text"]["body"]
@@ -355,6 +359,50 @@ def enviar_mensaje_whatsapp(texto,number):
                         }
                     ]
                 }
+            }
+        }
+    elif "btncomprar" in texto:
+        data= {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "text",
+            "text": {
+                "preview_url": False,
+                "body": "Los mejores articulos en oferta."
+            }
+        }
+    elif "btnvender" in texto:
+        data= {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "text",
+            "text": {
+                "preview_url": False,
+                "body": "Se vende a la tasa del dolar del día."
+            }
+        }
+    elif "btndireccion" in texto:
+        data= {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "text",
+            "text": {
+                "preview_url": False,
+                "body": "Estamos ubicados en el centro local ###."
+            }
+        }
+    elif "btnentrega" in texto:
+        data= {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "text",
+            "text": {
+                "preview_url": False,
+                "body": "para mas información de entrga, visita el siguiente enlace.."
             }
         }
     else:
