@@ -104,6 +104,9 @@ def recibir_mensajes(req):
                         numero = messages["from"]
 
                         enviar_mensaje_whatsapp(text,numero)
+                    
+                    #elif tipo_interactivo == "list_reply":
+                     #   text = me
                 
                 if "text" in messages:
                     text = messages["text"]["body"]
@@ -298,6 +301,55 @@ def enviar_mensaje_whatsapp(texto,number):
             "text": {
                 "preview_url": False,
                 "body": "Estare a la espera."
+            }
+        }
+    elif "lista" in texto:
+        data= {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "list",
+                "body": {
+                    "text" : "Selecciona alguna opción"
+                },"footer": {
+                    "text" : "Selecciona una de las opciones para poder ayudarte:"
+                },"action": {
+                    "button" : "Ver opciones",
+                    "secctions": [
+                        {
+                            "title": "Compra y venta",
+                            "row": [
+                                {
+                                    "id": "btncompra",
+                                    "title": "Comprar",
+                                    "description": "Compra los mejores articulos de tecnología."
+                                },
+                                {
+                                    "id": "btnvender",
+                                    "title": "Vender",
+                                    "description": "Vende lo que ya no estas usuando."
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Distribución y Entrega.",
+                            "rows": [
+                                {
+                                    "id": "btndireccion",
+                                    "title": "Local",
+                                    "description": "Puedes visitar nuestro local."
+                                },
+                                {
+                                    "id": "btnentrega",
+                                    "title": "Entrega",
+                                    "description": "La distribución y la entrega se hace todos los días."
+                                }
+                            ]
+
+                        }
+                    ]
             }
         }
     else:
